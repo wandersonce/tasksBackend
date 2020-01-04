@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt-nodejs')
 
 module.exports = app => {
     const getHash = (password, callback) => {
-        bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.genSalt(10, (err, salt) => { //will receive the password and hash it
             bcrypt.hash(password, salt, null, (err, hash) => callback(hash))
         })
     }

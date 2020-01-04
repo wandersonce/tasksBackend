@@ -5,10 +5,10 @@ const bcrypt = require('bcrypt-nodejs')
 module.exports = app => {
     const signin = async (req, res) => {
         if (!req.body.email || !req.body.password) {
-            return res.status(400).send('Missing data')
+            return res.status(400).send('Missing data') //if were not sent the password or email, will fall in this error.
         }
 
-        const user = await app.db('users')
+        const user = await app.db('users') //await can be called beacuse is inside a async function will wait until the first part be done.
             .where({ email: req.body.email })
             .first()
 

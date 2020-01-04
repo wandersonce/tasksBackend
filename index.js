@@ -3,6 +3,7 @@ const app = express()
 const db = require('./config/db')
 const consign = require('consign')
 
+//Consign is used to insert turn all modules able to be called by the "app" in this case.
 consign()
     .include('./config/passport.js')
     .then('./config/middlewares.js')
