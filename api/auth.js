@@ -9,7 +9,7 @@ module.exports = app => {
         }
 
         const user = await app.db('users') //await can be called beacuse is inside a async function will wait until the first part be done.
-            .where({ email: req.body.email })
+            .whereRaw("LOWER(email) = LOWER(?)", req.body.email)
             .first()
 
         if (user) {
